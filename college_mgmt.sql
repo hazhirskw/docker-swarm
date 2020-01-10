@@ -6,7 +6,9 @@
 -- Generation Time: Nov 10, 2019 at 10:14 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
-
+CREATE DATABASE college_mgmt
+USE college_mgmt
+GRANT ALL PRIVILEGES ON college_mgmt.* TO 'anjir'@'%' IDENTIFIED BY WITH mysql_native_password 'yunes';
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -27,7 +29,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `tbl_college`
 --
-
 CREATE TABLE `tbl_college` (
   `college_id` int(11) NOT NULL,
   `collegename` varchar(200) NOT NULL,
