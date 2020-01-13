@@ -1,0 +1,24 @@
+# Use root/example as user/password credentials
+version: '3.4'
+
+services:
+  web:
+    image: 192.168.56.101:5000/myweb:latest #192.168.56.101:5000/web:latest
+    ports:
+      - 80:80
+    deploy:
+      replicas: 1
+  database:
+    image: 192.168.56.101:5000/mydb:latest
+    deploy:
+      replicas: 1
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=college_mgmt
+      - MYSQL_USER=anjir
+      - MYSQL_PASSWORD=yunes
+    volumes:
+      - /home/vagrant/db/mysql/data:/var/lib/mysql
+      - /home/vagrant/db/mysql/init:/docker-entrypoint-initdb.d/:ro        
+
